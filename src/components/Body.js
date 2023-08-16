@@ -1,9 +1,16 @@
   import RestrauntCart from './Restaurant'
-  import {SwiggyMockData} from '../utils/mockData'
   // import { useEffect, useState } from 'react'
-  import { useState } from 'react'
+  import { useEffect, useState } from 'react'
   const Body = () => {
-      const [listOfRestaurants ,setListOfRestraunt] = useState(SwiggyMockData);
+      const [listOfRestaurants ,setListOfRestraunt] = useState([]);
+      useEffect(() =>{fetchData()},[])
+      const fetchData = async () =>{
+        const  data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5831516&lng=73.7860542&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'); 
+        const json = await data.json();
+        // .card.card.gridElements.infoWithStyle.info
+        console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRestraunt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+      }
       return (
         <div>
           <div className='search'>
@@ -16,7 +23,7 @@
           }}>Filter Top rated</button>
         </div>
         <div className='res-container'> 
-        {listOfRestaurants.map((restaurant) =>  <RestrauntCart key ={restaurant.info.id} resName={restaurant.info.name} cusins={restaurant.info.cuisines} time ={restaurant.info.sla.deliveryTime} stars ={restaurant.info.avgRatingString} />)}
+        {listOfRestaurants?.map((restaurant) =>  <RestrauntCart key ={restaurant.info.id} costForTwo ={restaurant.info.costForTwo} cloudImageId = {restaurant.info.cloudinaryImageId} resName={restaurant.info.name} cusins={restaurant.info.cuisines} time ={restaurant.info.sla.deliveryTime} stars ={restaurant.info.avgRatingString} />)}
         </div>
       </div>
     )

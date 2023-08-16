@@ -1,39 +1,176 @@
-.header{
+/* Header */
+.header {
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
-}
-
-img {
-    width: 200px;
-}
-
-.nav-items > ul {
-    display: flex; 
-    list-style-type: none;
-}
-
-
-.nav-items > ul> li {
-    display: flex;
     padding: 10px;
-    margin: 10px;
+}
+
+/* Logo */
+.header img {
+    width: 150px; /* Adjust logo width */
+    height: auto;
+}
+
+/* Navigation */
+.nav-items > ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-items > ul > li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 0 5px;
     list-style-type: none;
 }
 
-.restaurantCart{
+/* Restaurant Card */
+/* .restaurantCart {
     background-color: aqua;
-    width: 200px;
-    height: 300px;
-    border:1px solid black;
-    padding: 5px;
-    margin: 5px;
+    width: calc(20% - 20px); 
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    box-sizing: border-box;
+} */
+
+.res-logo {
+    width: 100%;
+    max-height: 80px; /* Limit logo height */
 }
 
-.res-logo{
-    width: 100%;
-}
-.res-container{
+/* Responsive Flex Container */
+.res-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+    .res-container {
+        justify-content: center;
+    }
+
+    .restaurantCart {
+        width: calc(50% - 20px);
+    }
+}
+*, :after, :before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: transparent;
+    -ms-text-size-adjust: none;
+    outline: none;
+}
+
+/* .restaurantCart img { */
+    /* width: 100%; */
+    /* max-height: 70%; 
+    /* object-fit: cover;  */
+    /* display: grid; */
+    /* transition: all 0.05s ease 0s;
+    cursor: pointer;
+    gap: 12px;
+    grid-auto-flow: row;
+    justify-content: stretch;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px;
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+
+        -webkit-tap-highlight-color: transparent;
+        -ms-text-size-adjust: none;
+        outline: none; */
+/* } */
+
+/* Reset default styles */
+*,
+:after,
+:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: transparent;
+    -ms-text-size-adjust: none;
+    outline: none;
+}
+
+/* Header styles */
+
+/* ... Logo and Navigation styles ... */
+/* Header styles */
+
+/* ... Logo and Navigation styles ... */
+
+/* Restaurant Card */
+/* Restaurant Card */
+.restaurantCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0;
+    color: #282c3f;
+    -webkit-tap-highlight-color: transparent;
+    background-color: rgb(235, 248, 248);
+    /* border: 1px solid #000; */
+    outline: none;
+    width: calc(20% - 20px); /* Adjust card width for 5 columns */
+    height: auto; /* Adjust card height as needed */
+    margin: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    list-style: none;
+    font-family: "Basis Grotesque Pro", Arial, sans-serif !important;
+
+    /* Add shadow and rounded curve */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Zoom out slightly on hover */
+.restaurantCart:hover {
+    transform: scale(0.98);
+}
+
+/* Image within Restaurant Card */
+.restaurantCart img {
+    width: 100%; /* Adjust image width */
+    height: 80%; /* Maintain image proportions */
+    object-fit:cover;
+    margin: 7px 0; /* Add margin to separate image from content */
+}
+
+/* Responsive Flex Container */
+.res-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+}
+
+/* Additional styling for the last two cards */
+.res-container .restaurantCart:nth-last-child(-n + 2) {
+    margin-left: auto; /* Push the last two cards to the right */
+}
+
+html{
+    margin: 10%;
+    margin-top: 0%;
+}
+h1{
+    text-align: center;
 }

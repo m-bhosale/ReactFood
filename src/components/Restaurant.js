@@ -1,12 +1,14 @@
-const RestrauntCart = (props) =>{
+const RestaurantCart = (props) => {
+  return (
+    <div className="restaurantCart">
+      <img src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${props.cloudImageId}`} alt={props.resName} />
+      <h1> {props.resName}</h1>
+      {/* <h4>Cuisines: {props.cuisines}</h4> */}
+      <h3>Rating: {props.stars}</h3>
+      <h4>Delivery Time: {props.time} minute</h4>
+      <h5>cost for two :{props.costForTwo}</h5>
+    </div>
+  );
+}
 
-    return (
-      <div className="restaurantCart">
-        <h3>Name {props.resName}</h3>
-        <h4>{props.cusins} </h4>
-        <h4>Rating {props.stars}</h4>
-        <h4>Delivery Time{props.time}</h4>
-      </div>
-    )
-  }
-export default RestrauntCart;  
+export default RestaurantCart;  
